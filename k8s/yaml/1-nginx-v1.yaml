@@ -43,7 +43,7 @@ spec:
         - wget
         - "-O"
         - "/work-dir/index.html"
-        - https://github.com/asosluev/diplom/k8s/html/hello-world-v1/index.html
+        - https://raw.githubusercontent.com/asosluev/diplom/master/k8s/html/hello-world-v1/index.html
         volumeMounts:
         - name: workdir
           mountPath: "/work-dir"
