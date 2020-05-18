@@ -1,5 +1,11 @@
 # nginx for k8s
 
+Клонировать репозиторий
+
+```
+ git clone https://github.com/asosluev/diplom.git
+```
+
 
 Проверить какой кластер
 
