@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-v1
+  namespace: nginx
+  labels:
+    app: nginx-v1
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    name: http
+  selector:
+    app: nginx-v1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-v1-deployment
+  namespace: nginx
+spec:
+  selector:
+    matchLabels:
+      app: nginx-v1
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: nginx-v1
+    spec:
+      containers:
+      - name: nginx-v1
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: workdir
+          mountPath: /usr/share/nginx/html
+      initContainers:
+      - name: install
+        image: busybox
+        command:
+        - wget
+        - "-O"
+        - "/work-dir/index.html"
+        - https://github.com/asosluev/diplom/k8s/html/hello-world-v1/index.html
+        volumeMounts:
+        - name: workdir
+          mountPath: "/work-dir"
+      dnsPolicy: Default
+      volumes:
+      - name: workdir
+        emptyDir: {}
+# storage to file /usr/share/nginx/html/
