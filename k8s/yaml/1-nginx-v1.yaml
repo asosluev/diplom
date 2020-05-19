@@ -35,7 +35,7 @@ spec:
         - containerPort: 80
         resources:
           limits:
-            cpu: 100m
+            cpu: 200m
           requests:
             cpu: 100m
         volumeMounts:
@@ -59,18 +59,18 @@ spec:
 ---
 # Add HPA
 kind: HorizontalPodAutoscaler 
-apiVersion: autoscaling/v2beta1 
+apiVersion: autoscaling/v1
 metadata: 
   name: nginx-v1-deployment
 spec: 
   maxReplicas: 10 
   minReplicas: 1 
   scaleTargetRef: 
-    apiVersion: app/v1 
+    apiVersion: apps/v1 
     kind: Deployment 
-    name: nginx-v1-deployment 
-  metrics: 
-  - type: Resource 
-    resource: 
-      name: cpu 
-      targetAverageUtilization: 2
+    name: nginx-v1-deployment
+  targetCPUUtilizationPercentage: 2
+status:
+  currentCPUUtilizationPercentage: 0
+  currentReplicas: 1
+  desiredReplicas: 1
