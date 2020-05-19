@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx-v2
-  namespace: nginx
+  namespace: default
   labels:
     app: nginx-v2
 spec:
@@ -17,7 +17,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-v2-deployment
-  namespace: nginx
+  namespace: default
 spec:
   selector:
     matchLabels:
@@ -33,6 +33,11 @@ spec:
         image: nginx:latest
         ports:
         - containerPort: 80
+        resources:
+          limits:
+            cpu: 100m
+          requests:
+            cpu: 100m
         volumeMounts:
         - name: workdir
           mountPath: /usr/share/nginx/html
