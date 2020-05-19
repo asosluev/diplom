@@ -40,14 +40,14 @@ spec:
             cpu: 100m
         volumeMounts:
         - name: workdir
-          mountPath: /usr/share/nginx/html
+          mountPath: /usr/share/nginx/html  # storage to file /usr/share/nginx/html/
       initContainers:
       - name: install
         image: busybox
         command:
         - wget
         - "-O"
-        - "/work-dir/index.html"
+        - "/work-dir/index.html"  # storage to file /usr/share/nginx/html/
         - https://raw.githubusercontent.com/asosluev/diplom/master/k8s/html/hello-world-v2/index.html
         volumeMounts:
         - name: workdir
@@ -56,4 +56,21 @@ spec:
       volumes:
       - name: workdir
         emptyDir: {}
-# storage to file /usr/share/nginx/html/
+---
+# Add HPA
+kind: HorizontalPodAutoscaler 
+apiVersion: autoscaling/v2beta1 
+metadata: 
+  name: nginx-v2-deployment
+spec: 
+  maxReplicas: 10 
+  minReplicas: 1 
+  scaleTargetRef: 
+    apiVersion: app/v1 
+    kind: Deployment 
+    name: nginx-v2-deployment 
+  metrics: 
+  - type: Resource 
+    resource: 
+      name: cpu 
+      targetAverageUtilization: 2

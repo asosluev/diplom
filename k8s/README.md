@@ -65,6 +65,15 @@ horizontalpodautoscaler.autoscaling/nginx-v1-deployment             Deployment/n
 horizontalpodautoscaler.autoscaling/nginx-v2-deployment             Deployment/nginx-v2-deployment             0%/1%           1         10        1          9h
 ```
 
+### minikube
+
+
+Необходимо просмотреть установленные модули в `minikube` и если не установлен `metrics-server` то добавить  
+```
+minikube addons list
+minikube addons enable metrics-server
+```
+
 Меню в k8s через minikube dashboard
 ```
  minikube dashboard
@@ -78,4 +87,17 @@ horizontalpodautoscaler.autoscaling/nginx-v2-deployment             Deployment/n
 ```
 minikube service nginx-loadbalancer --url
 http://192.168.223.212:31144
+```
+
+### Jmeter (нагрузочное тестирование)
+Официальная ссылка https://jmeter.apache.org/download_jmeter.cgi
+Пример файла конфигурации `k8s\jmeter\workload.jmx` кот. можно загрузить в программу и исправить необходимый URL полученный через `minikube`
+* нужно быть осторожным, выбирая кол-во сессий, что бы не загнуть локально PC. 
+
+Результат проверять с поможшью команд
+```
+kubectl get pods
+kubectl top pods
+kubectl top nodes
+kubectl get hpa
 ```
