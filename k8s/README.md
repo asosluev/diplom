@@ -29,12 +29,6 @@ kubectl get svc,pods -o wide
 ```
 kubectl get all
 ```
-
-Проверить работу pods через port-forward
-
-```
-kubectl port-forward <pod_name> 8080:80
-```
 For instance 
 ```
 kubectl get all 
@@ -65,6 +59,20 @@ horizontalpodautoscaler.autoscaling/nginx-v1-deployment             Deployment/n
 horizontalpodautoscaler.autoscaling/nginx-v2-deployment             Deployment/nginx-v2-deployment             0%/1%           1         10        1          9h
 ```
 
+Проверить работу pods через port-forward
+
+```
+kubectl port-forward <pod_name> 8080:80
+```
+
+HPA в конфигурации при установке, но при желании можно добавить с помощью команд.
+```
+kubectl autoscale deployment nginx-v1-deployment --cpu-percent=1 --min=1 --max=10
+kubectl autoscale deployment nginx-v2-deployment --cpu-percent=1 --min=1 --max=10
+```
+* появляется через некоторое время
+
+
 ### minikube
 
 
@@ -86,7 +94,7 @@ minikube addons enable metrics-server
 Получить доступ локально в minikube (пример)
 ```
 minikube service nginx-loadbalancer --url
-http://192.168.223.212:31144
+For instance: http://192.168.223.212:31144
 ```
 
 ### Jmeter (нагрузочное тестирование)
