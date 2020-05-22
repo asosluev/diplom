@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+                <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css"> 
+        
+        <link type="text/css" rel="stylesheet" href="JS/style.css">
+        <title>Football-Results</title>
+    </head>
+
+    <body>
+
+        <div class="header">
+            <div class="last-match">
+                <div class="last-match-title">
+                    Last Match
+                </div>
+
+                <div class="last-match-score">2 : 1</div>
+                <div class="team" id="team-1">Green FC</div>
+                <div class="team" id="team-2">Black FC</div>
+
+                <div class="btn" id="add-match-btn">
+                    Add Match
+                </div>
+            </div>
+
+        </div>
+
+        <div class="add-match">
+            <div class="match-row">
+                <select class="team-select" id="team-select-1">
+                    <option disabled selected value> -- select a team -- </option>
+                    <option value="Club-1" >AC Milan</option>
+                    <option value="Club-2" >Juventus</option>
+                    <option value="Club-3" >Real Madryt</option>
+                    <option value="Club-4" >Manchester United</option>
+                </select>
+
+                <input type="number" class="enter-score" id="score-1" min="0" max="99">
+                <input type="number" class="enter-score" id="score-2" min="0" max="99">
+
+                <select class="team-select" id="team-select-2">
+                    <option disabled selected value> -- select a team -- </option>
+                    <option value="Club-1" >Club 1</option>
+                    <option value="Club-2" >Club 2</option>
+                    <option value="Club-4" >Club 2</option>
+                </select>
+
+                <input type="date" class="enter-date" id="match-date">
+
+            </div>
+        </div>
+
+        <div class="table">
+            <h2 class="table-title">
+                Ranking
+            </h2>
+            <div class="table-list">
+                
+                <div class="table-item" id="table-item-header">
+                    <div class="table-item-pos-header">#</div>
+                    <div class="table-item-name-header">Team</div>
+                    <div class="table-item-mp-header">Matches</div>
+                    <div class="table-item-win-header">Wins</div>
+                    <div class="table-item-Draw-header">Draws</div>
+                    <div class="table-item-Losses-header">Losses</div>
+                    <div class="table-item-pts-header">Points</div>
+                    <div class="table-item-delete">
+                        <button class="item-delete-btn">
+                            <i class="ion-ios-close-outline"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-item">
+                    <div class="item-pos">1</div>
+                    <div id="item-name">Juventus</div>
+                    <div class="item-mp">12</div>
+                    <div class="item-win">5</div>
+                    <div class="item-draw">4</div>
+                    <div class="item-losses">3</div>
+                    <div class="item-pts">19</div>
+                    <div class="table-item-delete">
+                        <button class="item-delete-btn">
+                            <i class="ion-ios-close-outline"></i>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="table-item">
+                    <div class="table-item-pos">2</div>
+                    <div class="table-item-name">Śląsk</div>
+                    <div class="table-item-mp">12</div>
+                    <div class="table-item-win">5</div>
+                    <div class="table-item-draw">4</div>
+                    <div class="table-item-losses">3</div>
+                    <div class="table-item-pts">19</div>
+                    <div class="table-item-delete-btn">
+                        <button class="item-delete">
+                            <i class="ion-ios-close-outline"></i>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="table-item">
+                    <div class="table-item-pos">2</div>
+                    <div class="table-item-name">AC Milan</div>
+                    <div class="table-item-mp">12</div>
+                    <div class="table-item-win">5</div>
+                    <div class="table-item-draw">4</div>
+                    <div class="table-item-losses">3</div>
+                    <div class="table-item-pts">19</div>
+                    <div class="table-item-delete">
+                        <button class="item-delete-btn">
+                            <i class="ion-ios-close-outline"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-item">
+                    <div class="table-item-pos">2</div>
+                    <div class="table-item-name">Juventus</div>
+                    <div class="table-item-mp">12</div>
+                    <div class="table-item-win">5</div>
+                    <div class="table-item-draw">4</div>
+                    <div class="table-item-losses">3</div>
+                    <div class="table-item-pts">19</div>
+                    <div class="table-item-delete">
+                        <button class="item-delete-btn">
+                            <i class="ion-ios-close-outline"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-item">
+                    <div class="table-item-pos">2</div>
+                    <div class="table-item-name">PSG</div>
+                    <div class="table-item-mp">12</div>
+                    <div class="table-item-win">5</div>
+                    <div class="table-item-draw">4</div>
+                    <div class="table-item-losses">3</div>
+                    <div class="table-item-pts">19</div>
+                    <div class="table-item-delete">
+                        <button class="item-delete-btn">
+                            <i class="ion-ios-close-outline"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-item">
+                    <div class="table-item-pos">2</div>
+                    <div class="table-item-name">Juventus</div>
+                    <div class="table-item-mp">12</div>
+                    <div class="table-item-win">5</div>
+                    <div class="table-item-draw">4</div>
+                    <div class="table-item-losses">3</div>
+                    <div class="table-item-pts">19</div>
+                    <div class="table-item-delete">
+                        <button class="item-delete-btn">
+                            <i class="ion-ios-close-outline"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="table">
+            <h2 class="table-title">
+                Matches
+            </h2>
+
+            <div class="match-list">
+                <div class="table-item" id="match-item-header">
+                    <!--<div>#</div>-->
+                    <div>Date</div>
+                    <div>Team 1</div>
+                    <div>Result</div>
+                    <div>Team 2</div>
+
+                    <div class="table-item-delete">
+                        <button class="item-delete-btn">
+                            <i class="ion-ios-close-outline"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-item">
+
+                    <div>23/03/2015</div>
+
+                    <div>Juventus</div>
+                    <div>2:1</div>
+                    <div>PSG</div>
+
+                    <div class="table-item-delete">
+                        <button class="item-delete-btn">
+                            <i class="ion-ios-close-outline"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-item">
+
+
+                    <div>23/03/2015</div>
+
+                    <div>Juventus</div>
+                    <div>2:1</div>
+                    <div>PSG</div>
+
+                    <div class="table-item-delete">
+                        <button class="item-delete-btn">
+                            <i class="ion-ios-close-outline"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-item">
+
+
+                    <div>23/03/2015</div>
+
+                    <div>Slask</div>
+                    <div>2:1</div>
+                    <div>Arka</div>
+
+                    <div class="table-item-delete">
+                        <button class="item-delete-btn">
+                            <i class="ion-ios-close-outline"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-item">
+
+
+                    <div>23/03/2015</div>
+
+                    <div>Lechia</div>
+                    <div>2:1</div>
+                    <div>Bayern</div>
+
+                    <div class="table-item-delete">
+                        <button class="item-delete-btn">
+                            <i class="ion-ios-close-outline"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="add-team">
+            <div class="add-team-wrapper">
+                <div class="add-team-row">
+                    <div class="btn" id="add-team-btn">
+                        Add Team
+                    </div>
+
+                <input placeholder="Team name... ('clear' for remove all data.)" class="enter-name" id="add-team-field">
+                </div>
+            </div>
+
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="JS/jQuery.js"></script>
+        <script src="JS/football.js"></script>
+
+</html>
