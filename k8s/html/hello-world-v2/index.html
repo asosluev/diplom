@@ -2,9 +2,333 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-                <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css"> 
+                      <!--                       <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css"> 
+-->    
+ 
         
-        <link type="text/css" rel="stylesheet" href="JS/style.css">
+       <!--  <link type="text/css" rel="stylesheet" href="JS/style.css">--> 
+        <style>
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Cabin', sans-serif;
+/*    padding i border wliczaja sie do width/height */
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+body {
+    color: black;
+    background-color: #fffffa;
+    position: relative;
+    height: 100vh;
+}
+
+.header {
+    height: 40vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 73, 184, 0.4), rgba(0, 0, 0, 0.4));
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.last-match {
+    position: relative;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+}
+
+.last-match-title {
+    font-size: 250%;
+    text-align: center;
+}
+
+.last-match-score {
+    margin-top: 5%;
+    font-size: 220%;
+    text-align: center;
+}
+
+.team {
+    display: inline-block;
+    font-size: 150%;
+}
+
+#team-2 {
+    float: right;
+}
+
+.btn {
+    margin-top: 10%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    left: 50%;
+    height: 35px;
+    width: 200px;
+    border: 2px solid white;
+/*    border-radius: 20px;*/
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 35px;
+}
+
+.btn:hover {
+    background-color: rgba(0, 255, 108, 0.66);
+    cursor: pointer;
+}
+
+.btn:active {
+    background-color: rgba(0, 255, 108, 0.5);
+}
+
+.add-match {
+    padding: 20px;
+    width: 100%;
+    background-color: #f0f0f0;
+}
+
+.match-row {
+    width: 60%;
+    height: 100%;
+    margin-left: 20%;
+    text-align: center;
+}
+
+.team-select {
+    width: 35%;
+    height: 44px;
+    border: 1px solid black;
+    color: inherit;
+/*    background-color: #c8ffc1;*/
+    background-color: inherit;
+}
+
+.team-select:active,
+.team-select:focus {
+    background-color: #ceffce;
+}
+
+#team-select-1 {
+    float: left;
+}
+
+#team-select-2 {
+    float: right;
+}
+
+.enter-score {
+    border: 1px solid black;
+    width: 50px;
+    height: 44px;
+    color: inherit;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.enter-date {
+    border: 1px solid black;
+    display: block;
+    width: 20%;
+    margin-left: 40%;
+    margin-top: 10px;
+    color: inherit;
+    background-color: white;
+    
+}
+
+.table {
+    width: 60%;
+    margin-left: 20%;
+}
+
+.table-title {
+    text-align: center;
+    font-size: 150%;
+    font-weight: normal;
+    padding-top: 50px;
+    padding-bottom: 25px;
+    color: #3d3d3d;
+}
+
+.table-title:after {
+    content: "";
+    display: block;
+    height: 1px;
+/*    width: %;*/
+    background: #d6d6d6;
+    margin: 10px 35%;
+    margin-top: 20px;
+}
+
+#table-item-header {
+    background-color: #fff;
+    padding-bottom: 5px;
+}
+
+#table-item-header * {
+    display: inline-block;
+    font-weight: normal;
+    color: #777777;
+    font-size: 80%;
+}
+
+#table-item-header > :last-child {
+    display: none;
+}
+
+.table-item {
+    display: flex;
+}
+
+.table-item:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+
+.table-item:nth-child(2) {
+    background-color: #ceffce;
+    color: #005008;
+}
+
+.table-item:last-child {
+    background-color: #ffcece;
+    color: #500008;
+}
+
+.table-item > :nth-child(2),
+.table-item > :nth-last-child(2) {
+    font-weight: bold;
+}
+
+.table-item * {
+    display: inline-block;
+    flex-basis: 100%;
+    text-align: center;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.table-item-delete {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    max-width: 0px;
+    overflow: visible;
+}
+
+.item-delete-btn {
+    opacity: 0;
+/*    transition: opacity 0.3s;*/
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.item-delete-btn i {
+    margin: 0;
+    padding: 0;
+}
+
+.item-delete-btn:focus { outline: none; }
+.item-delete-btn:active {
+    transform: translateX(2px);
+    color: red;
+}
+
+.table-item:hover .table-item-delete,
+.match-item:hover .table-item-delete {
+    display: inline-block;
+}
+.table-item:hover .item-delete-btn,
+.match-item:hover .item-delete-btn {
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+
+
+
+
+#match-item-header {
+    background-color: #fff;
+    padding-bottom: 5px;
+}
+
+#match-item-header * {
+    display: inline-block;
+    font-weight: normal;
+    color: #777777;
+    font-size: 80%;
+}
+
+#match-item-header > :last-child {
+    display: none;
+}
+
+.match-list .table-item {
+    background-color: white;
+    color: black;
+}
+
+.match-list .table-item * {
+    font-weight: normal;
+}
+
+.match-list .table-item:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+
+
+
+.add-team {
+    height: 40vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(145, 0, 150, 0.4), rgba(0, 0, 0, 0.4));
+    background-color: #f0f0f0;
+    margin-top: 100px;
+    background-position: center;
+    position: relative;
+}
+
+.add-team-wrapper {
+    width: 60%;
+    margin-left: 20%;
+    height: 100%;
+    padding: 20px;
+}
+
+.add-team .btn {
+    color: black;
+    border-color: black;
+    margin-top: 10px;
+    padding: 0;
+}
+
+.enter-name {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 44px;
+    width: 300px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    z-index: 9999999;
+}
+
+
+        </style>
         <title>Football-Results</title>
     </head>
 
@@ -267,9 +591,470 @@
             </div>
 
         </div>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--    <script src="JS/jquery-3.5.1.min.js"></script>
         <script src="JS/jQuery.js"></script>
+
         <script src="JS/football.js"></script>
+     -->
+        <script src="JS/jquery-3.5.1.min.js"></script>
+
+        <script type="text/javascript">
+        $(".add-match").hide();
+ $("#add-match-btn").click(function() {
+     $(".add-match").slideDown();
+      });
+
+        
+        </script>
+
+        <script type="text/javascript">
+        var footballController = (function() {
+
+var Team = function(name) {
+    this.name = name;
+    this.position = 0;
+    this.matchesPlayed = 0;
+    this.wins = 0;
+    this.draws = 0;
+    this.losses = 0;
+    this.points = 0;
+};
+
+var Match = function(id, date, team1, team2, score1, score2) {
+    this.id = id;
+    this.date = date;
+    this.team1 = team1;
+    this.team2 = team2;
+    this.score1 = score1;
+    this.score2 = score2;
+};
+
+var data = {
+    allTeams: [],
+    allMatches: []
+};
+
+var sortTeams = function() {
+    function compare(a,b) {
+        if (a.points < b.points)
+            return 1;
+        if (a.points > b.points)
+            return -1;
+        return 0;
+    }
+
+    data.allTeams.sort(compare);
+};
+
+var updateTeamsPosition = function() {
+    data.allTeams.forEach(function(item, index) {
+        item.position = index + 1;
+    });
+};
+
+var sortMatches = function() {
+    data.allMatches.sort(function(a, b) {
+        if (b.date > a.date)
+            return 1;
+        if (b.date < a.date)
+            return -1;
+
+        if (b.id > a.id)
+            return 1;
+        if (b.id < a.id)
+            return -1;
+    });
+};
+
+var setWin = function(team, points, set = 1) {
+    team.matchesPlayed += 1 * set;
+    team.wins += 1 * set;
+    team.points += points * set;
+};
+var setDraw = function(team, points, set = 1) {
+    team.matchesPlayed += 1 * set;
+    team.draws += 1 * set;
+    team.points += points * set;
+};
+var setLoss = function(team, set = 1) {
+    team.matchesPlayed += 1 * set;
+    team.losses += 1 * set;
+};
+
+return {
+
+    tmpGetData: function() {
+        return data;
+    },
+
+    getTeamAndIndexByName: function(name) {
+        var team, index;
+
+        data.allTeams.every(function(item, i) {
+            if (name === item.name) {
+                team = item;
+                index = i;
+                return false;
+            }
+            return true;
+        });
+
+        return {team, index};
+    },
+
+    getMatchAndIndexByID: function(id) {
+        var match, index;
+
+        data.allMatches.every(function(item, i) {
+            if (parseInt(id) === item.id) {
+                match = item;
+                index = i;
+                return false;
+            }
+            return true;
+        });
+
+        return {match, index};
+    },
+
+    createTeam: function(name) {
+        return new Team(name);
+    },
+
+    addTeam: function(team) {
+            data.allTeams.push(team);
+    },
+
+    removeTeam: function(teamIndex) {
+
+        data.allTeams.splice(teamIndex, 1);
+    },
+
+    teamExists: function(name) {
+        var teamsNames = data.allTeams.map(function(team) {
+            return team.name;
+        });
+
+        return teamsNames.includes(name);
+    },
+
+    createMatch: function(matchInput) {
+        var mi = matchInput;
+
+        var id;
+        if (data.allMatches.length > 0) {
+            id = data.allMatches[0].id + 1;
+        } else {
+            id = 1;
+        }
+        
+        return new Match(id, mi.matchDate, mi.team1, mi.team2, mi.teamScore1, mi.teamScore2);
+    },
+
+    addMatch: function(match) {
+        data.allMatches.push(match);
+    },
+
+    removeMatch: function(matchIndex) {
+        data.allMatches.splice(matchIndex, 1);
+    },
+
+    getAllMatches: function() {
+        return data.allMatches;
+    },
+
+    getAllTeams: function() {
+        return data.allTeams;
+    },
+
+    updateTeamsStats: function(match, unSet) {
+        var team1 = this.getTeamAndIndexByName(match.team1).team;
+        var team2 = this.getTeamAndIndexByName(match.team2).team;
+        if (!team1 || !team2)
+            return;
+        var score1 = match.score1;
+        var score2 = match.score2;
+
+        unSet = unSet ? -1 : 1;
+
+        if (score1 > score2) {
+            setWin(team1, 3, unSet);
+            setLoss(team2, unSet);
+        } else if ( score1 < score2) {
+            setWin(team2, 3, unSet);
+            setLoss(team1, unSet);
+        } else {
+            setDraw(team1, 1, unSet);
+            setDraw(team2, 1, unSet);
+        }
+
+    },
+
+    updateLists: function() {
+        sortTeams();
+        updateTeamsPosition();
+        sortMatches();
+    },
+
+    saveDataToLocalStorage: function() {
+        localStorage.footballAppData = JSON.stringify(data);
+    },
+
+    loadDataFromLocalStorage: function() {
+        if (localStorage.footballAppData) {
+            data = JSON.parse(localStorage.footballAppData);
+        }
+    },
+
+    clearLocalStorage: function() {
+        localStorage.removeItem("footballAppData");
+        data = {
+            allMatches: [],
+            allTeams: []
+        };
+    }
+
+};
+})();
+
+
+
+var UIController = (function() {
+
+var DOMElements = {
+    addTeamBtn: '#add-team-btn',
+    addTeamInput: '#add-team-field',
+    addMatchBtn: '#add-match-btn',
+    table: '.table-list',
+    teamSelect1: '#team-select-1',
+    teamSelect2: '#team-select-2',
+    teamScore1: '#score-1',
+    teamScore2: '#score-2',
+    matchDate: '#match-date',
+    matchList: '.match-list',
+    bannerTeam1: '#team-1',
+    bannerTeam2: '#team-2',
+    bannerResult: '.last-match-score',
+    bannerTitle: '.last-match-title'
+};
+
+return {
+
+    getTeamInput: function() {
+        return document.querySelector(DOMElements.addTeamInput).value;
+    },
+
+    getMatchInput: function() {
+        return {
+            team1: document.querySelector(DOMElements.teamSelect1).value,
+            team2: document.querySelector(DOMElements.teamSelect2).value,
+            teamScore1: document.querySelector(DOMElements.teamScore1).value,
+            teamScore2: document.querySelector(DOMElements.teamScore2).value,
+            matchDate: document.querySelector(DOMElements.matchDate).value
+        }
+    },
+
+    getDOMElements: function() {
+        return DOMElements;
+    },
+
+    addTeamsToOptions: function(teams) {
+
+        teams.forEach(function(team) {
+            var teamHtmlSelect = '<option value="Value" >Name</option>';
+
+            teamHtmlSelect = teamHtmlSelect.replace('Value', team.name);
+            teamHtmlSelect = teamHtmlSelect.replace('Name', team.name);
+            document.querySelector(DOMElements.teamSelect1).insertAdjacentHTML('beforeend', teamHtmlSelect);
+            document.querySelector(DOMElements.teamSelect2).insertAdjacentHTML('beforeend', teamHtmlSelect);
+
+        });
+
+    },
+
+    addTeam: function(team) {
+        var teamHtmlDiv = '<div class="table-item" id="item-name"><div class="item-pos">Position</div><div>ClubName</div><div class="item-mp">MatchesPlayed</div><div class="item-win">Wins</div><div class="item-draw">Draws</div><div class="item-losses">Losses</div><div class="item-pts">Points</div><div class="table-item-delete"><button class="item-delete-btn"><i class="ion-ios-close-outline"></i></button></div></div>';
+
+        teamHtmlDiv = teamHtmlDiv.replace('Position', team.position);
+        teamHtmlDiv = teamHtmlDiv.replace('item-name', team.name);
+        teamHtmlDiv = teamHtmlDiv.replace('ClubName', team.name);
+        teamHtmlDiv = teamHtmlDiv.replace('MatchesPlayed', team.matchesPlayed);
+        teamHtmlDiv = teamHtmlDiv.replace('Wins', team.wins);
+        teamHtmlDiv = teamHtmlDiv.replace('Draws', team.draws);
+        teamHtmlDiv = teamHtmlDiv.replace('Losses', team.losses);
+        teamHtmlDiv = teamHtmlDiv.replace('Points', team.points);
+
+        document.querySelector(DOMElements.table).insertAdjacentHTML('beforeend', teamHtmlDiv);
+    },
+
+    addMatch: function(match) {
+        var matchHtmlDiv = '<div class="table-item" id="Match-ID"><div>Date</div><div>Team1</div><div>Score1 : Score2</div><div>Team2</div><div class="table-item-delete"><button class="item-delete-btn"><i class="ion-ios-close-outline"></i></button></div></div>';
+
+        matchHtmlDiv = matchHtmlDiv.replace('Match-ID', 'match-' + match.id);
+        matchHtmlDiv = matchHtmlDiv.replace('Date', match.date);
+        matchHtmlDiv = matchHtmlDiv.replace('Team1', match.team1);
+        matchHtmlDiv = matchHtmlDiv.replace('Score1', match.score1);
+        matchHtmlDiv = matchHtmlDiv.replace('Score2', match.score2);
+        matchHtmlDiv = matchHtmlDiv.replace('Team2', match.team2);
+
+        document.querySelector(DOMElements.matchList).insertAdjacentHTML('beforeend', matchHtmlDiv);
+    },
+
+    updateBanner: function(match) {
+        document.querySelector(DOMElements.bannerTeam1).innerHTML = match.team1;
+        document.querySelector(DOMElements.bannerTeam2).innerHTML = match.team2;
+        document.querySelector(DOMElements.bannerResult).innerHTML = match.score1 + " : " + match.score2;
+    },
+
+    clearList: function(htmlElement) {
+        htmlElement = document.querySelector(htmlElement);
+        while (htmlElement.childNodes.length > 2) {
+            htmlElement.removeChild(htmlElement.lastChild);
+        }
+    },
+
+    clearBanner: function() {
+        document.querySelector(DOMElements.bannerTeam1).innerHTML = ". . .";
+        document.querySelector(DOMElements.bannerTeam2).innerHTML = ". . .";
+        document.querySelector(DOMElements.bannerResult).innerHTML = ". . .";
+    }
+
+};
+})();
+
+
+
+var controller = (function(UICtrl, fbCtrl) {
+
+var setEvtListeners = function() {
+    var doms = UICtrl.getDOMElements();
+
+    document.querySelector(doms.addTeamBtn).addEventListener('click', addTeam);
+    document.querySelector(doms.addMatchBtn).addEventListener('click', addMatch);
+    document.addEventListener('keypress', function(evt) {
+        if (evt.keyCode === 13 && document.querySelector(doms.addTeamInput) === document.activeElement) {
+            addTeam();
+        } else if (evt.keyCode === 13) {
+            addMatch();
+        }
+    });
+
+    document.querySelector(doms.matchList).addEventListener('click', deleteMatch);
+    document.querySelector(doms.table).addEventListener('click', deleteTeam);
+
+};
+
+var deleteTeam = function(evt) {
+    var teamName = evt.target.parentNode.parentNode.parentNode.id;
+    if (teamName && confirm("Do you really want to delete the team?")) {
+
+        var teamWrap = fbCtrl.getTeamAndIndexByName(teamName);
+        fbCtrl.removeTeam(teamWrap.index);
+        updateUI();
+        fbCtrl.saveDataToLocalStorage();         
+    }
+};
+
+var deleteMatch = function(evt) {
+    var matchID = evt.target.parentNode.parentNode.parentNode.id;
+    matchID = matchID.split("-")[1];
+
+    if (matchID && confirm("Do you really want to delete the match?")) {
+        var matchWrap = fbCtrl.getMatchAndIndexByID(matchID);
+        fbCtrl.updateTeamsStats(matchWrap.match, true);
+        fbCtrl.removeMatch(matchWrap.index);
+        updateUI();
+        fbCtrl.saveDataToLocalStorage();
+    }
+    
+};
+
+var addTeam = function() {
+
+    var teamName = UICtrl.getTeamInput();
+
+    if (teamName === "clear") {
+        if (confirm("This operation will remove all data. Do you want to continue?")) {
+            fbCtrl.clearLocalStorage();
+        }
+    } else if (teamName === "") {
+        alert("Name can't be blank.");
+    } else if (fbCtrl.teamExists(teamName)) {
+        alert("That team already exists.");
+    } else {
+        var newTeam = fbCtrl.createTeam(teamName);
+        fbCtrl.addTeam(newTeam);
+        fbCtrl.saveDataToLocalStorage();
+    }
+
+    updateUI();
+};
+
+var addMatch = function() {
+    var mInput = UICtrl.getMatchInput();
+
+    for (var key in mInput) {
+        if (mInput[key] === "") {
+            alert("Enter data.");
+            return;
+        }
+    }
+    if (mInput.team1 === mInput.team2) {
+        alert("Choose another team.");
+        return;
+    }
+
+    var newMatch = fbCtrl.createMatch(mInput);
+    fbCtrl.addMatch(newMatch);
+    fbCtrl.updateTeamsStats(newMatch);
+
+    fbCtrl.saveDataToLocalStorage();
+    updateUI();
+};
+
+var updateUI = function() {
+    var doms = UICtrl.getDOMElements();
+
+    fbCtrl.updateLists();
+    UICtrl.clearList(doms.table);
+    UICtrl.clearList(doms.matchList);
+
+    var teams = fbCtrl.getAllTeams();
+    var matches = fbCtrl.getAllMatches();
+
+    if (matches.length > 0) {
+        UICtrl.updateBanner(matches[0]);
+    }
+
+    teams.forEach(function(team) {
+        UICtrl.addTeam(team);
+    });
+    UICtrl.clearList(UICtrl.getDOMElements().teamSelect1);
+    UICtrl.clearList(UICtrl.getDOMElements().teamSelect2);
+    UICtrl.addTeamsToOptions(fbCtrl.getAllTeams());
+    
+    matches.forEach(function(match) {
+        UICtrl.addMatch(match);
+    });
+
+    document.querySelector(doms.addTeamInput).value = "";
+}
+
+return {
+
+    initialize: function() {
+        setEvtListeners();
+        UICtrl.clearBanner();
+        fbCtrl.loadDataFromLocalStorage();
+        updateUI();
+    }
+
+};
+})(UIController, footballController);
+
+controller.initialize();
+        
+        
+        </script>
 
 </html>
