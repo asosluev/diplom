@@ -23,7 +23,7 @@ body {
 .header {
     height: 40vh;
     width: 100%;
-    background-image: linear-gradient(rgba(0, 150, 50, 0.4), rgba(0, 0, 0, 0.4)), url(https://oboi-printcolor.com/wp-content/uploads/pc_photobase/sport/all_sport/pc_1610005_myah_stadion.jpg);
+    background-image: linear-gradient(rgba(0, 150, 50, 0.4), rgba(0, 0, 0, 0.4)), url(images/glav.jpg);
     background-size: cover;
     background-position: center;
     position: relative;
