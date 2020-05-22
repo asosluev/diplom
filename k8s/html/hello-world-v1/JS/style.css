@@ -284,7 +284,7 @@ body {
 .add-team {
     height: 40vh;
     width: 100%;
-    background-image: linear-gradient(rgba(0, 150, 50, 0.4), rgba(0, 0, 0, 0.4)), url(https://upload.wikimedia.org/wikipedia/commons/b/bb/UPC-Arena_Panorama.jpg);
+    background-image: linear-gradient(rgba(0, 150, 50, 0.4), rgba(0, 0, 0, 0.4)), url(images/foot.jpg);
     background-color: #f0f0f0;
     margin-top: 100px;
     background-position: center;
