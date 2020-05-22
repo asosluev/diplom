@@ -48,7 +48,7 @@ spec:
         - wget
         - "-O"
         - "/work-dir/index.html"  # storage to file /usr/share/nginx/html/
-        - https://raw.githubusercontent.com/asosluev/diplom/master/k8s/html/footv2.test/index.html
+        - https://raw.githubusercontent.com/asosluev/diplom/master/k8s/html/hello-world-v2/index.html
         volumeMounts:
         - name: workdir
           mountPath: "/work-dir"
